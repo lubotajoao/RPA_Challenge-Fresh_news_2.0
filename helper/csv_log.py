@@ -4,12 +4,12 @@ from datetime import datetime
 from time import sleep
 
 
-def csv_log(file: str, process: str, task: str, status: str, description: str) -> None:
+def csv_log(file: str, project_name: str, task: str, status: str, description: str) -> None:
     try:
         created_at = datetime.now()
         logged_user = os.getlogin()
 
-        process = process.strip()
+        project_name = project_name.strip()
         status = status.strip()
         description = description.strip()
 
@@ -25,8 +25,8 @@ def csv_log(file: str, process: str, task: str, status: str, description: str) -
             task = task[task.rindex('\\') + 1:]
             task = task.strip()
 
-        # "Created_At", "Process", "Task/Module", "User_Name", "Status", "Description"
-        data = [str(created_at), str(process), str(task), str(logged_user), str(status), str(description)]
+        # "Created_At", "project_name", "Task/Module", "User_Name", "Status", "Description"
+        data = [str(created_at), str(project_name), str(task), str(logged_user), str(status), str(description)]
 
         sleep(1)
         with (open(file, 'a') as file):

@@ -3,3 +3,12 @@ Created_At,Process_Name,Module_Name,User_Name,Status,Description
 2024-06-23 17:51:36.340620,RPA Challenge Fresh News 2.0,rpa_challenge_fresh_news_2.0_main.py,lubot,Finish_Process,The process has finished.
 2024-06-23 17:52:04.995474,RPA Challenge Fresh News 2.0,rpa_challenge_fresh_news_2.0_main.py,lubot,Start_Process,The process has started.
 2024-06-23 17:52:05.997575,RPA Challenge Fresh News 2.0,rpa_challenge_fresh_news_2.0_main.py,lubot,Finish_Process,The process has finished.
+2024-06-23 18:25:48.252908,RPA Challenge Fresh News 2.0,rpa_challenge_fresh_news_2.0_main.py,lubot,Start_Process,The process has started.
+2024-06-23 18:25:51.113887,RPA Challenge Fresh News 2.0,clean_up_tasks.py,lubot,Log,Microsoft Edge task closed successfully.
+2024-06-23 18:25:52.254678,RPA Challenge Fresh News 2.0,rpa_challenge_fresh_news_2.0_main.py,lubot,Finish_Process,The process has finished.
+2024-06-23 18:28:22.993563,RPA Challenge Fresh News 2.0,rpa_challenge_fresh_news_2.0_main.py,lubot,Start_Process,The process has started.
+2024-06-23 18:28:24.912527,RPA Challenge Fresh News 2.0,rpa_challenge_fresh_news_2.0_main.py,lubot,Finish_Process,The process has finished.
+2024-06-23 18:29:15.113268,RPA Challenge Fresh News 2.0,rpa_challenge_fresh_news_2.0_main.py,lubot,Start_Process,The process has started.
+2024-06-23 18:29:17.722275,RPA Challenge Fresh News 2.0,clean_up_tasks.py,lubot,Log,Microsoft Edge task closed successfully.
+2024-06-23 18:29:20.285708,RPA Challenge Fresh News 2.0,clean_up_tasks.py,lubot,Log,Microsoft Excel task closed successfully.
+2024-06-23 18:29:21.328253,RPA Challenge Fresh News 2.0,rpa_challenge_fresh_news_2.0_main.py,lubot,Finish_Process,The process has finished.

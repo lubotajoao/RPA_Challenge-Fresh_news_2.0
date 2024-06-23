@@ -1,4 +1,6 @@
 import traceback
+
+from helper.clean_up_tasks import closing_apps
 from helper.create_csv_log_file import create_csv_log_file
 from helper.create_excel_report_file import create_excel_report_file
 from helper.create_folder import create_folder
@@ -37,22 +39,28 @@ def main():
         status = "Start_Process"
         description = "The process has started."
         print(description)
-        csv_log(file=current_log_file, process=project_name, task=module_name, status=status, description=description)
+        csv_log(file=current_log_file, project_name=project_name, task=module_name, status=status, description=description)
 
-        # init_driver()
+        # Clean_Up Tasks
+        closing_apps(log_file=current_log_file, project_name=project_name)
+
+        # Web Flow
+
+        # Clean_Up Tasks
+        closing_apps(log_file=current_log_file, project_name=project_name)
 
     except Exception as e:
         status = "Error"
         description = f'An error occurred in Orchestrator Module:\n[{e}][\n{traceback.format_exc()}]'
         print(description)
-        csv_log(file=current_log_file, process=project_name, task=module_name, status=status, description=description)
+        csv_log(file=current_log_file, project_name=project_name, task=module_name, status=status, description=description)
 
     finally:
         # End Process
         status = "Finish_Process"
         description = "The process has finished."
         print(description)
-        csv_log(file=current_log_file, process=project_name, task=module_name, status=status, description=description)
+        csv_log(file=current_log_file, project_name=project_name, task=module_name, status=status, description=description)
 
 
 if __name__ == '__main__':
