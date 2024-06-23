@@ -13,6 +13,10 @@ def csv_log(file: str, process: str, task: str, status: str, description: str) -
         status = status.strip()
         description = description.strip()
 
+        description = description.replace("\n", "")
+        description = description.replace("         ~~^~~", "")
+        description = description.replace("   ", "")
+
         # Getting the task_name even if it is from the absolute path string ("path/to/delete_file.py"). delete_file.py will be taken.
         if "/" in task:
             task = task[task.rindex('/') + 1:]

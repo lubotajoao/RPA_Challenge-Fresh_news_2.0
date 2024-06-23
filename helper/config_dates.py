@@ -1,11 +1,6 @@
-from datetime import date, datetime
+from datetime import datetime
 
 date_today = datetime.now()
-
-
-def cur_date():
-    c_date = date.today()
-    return c_date
 
 
 def cur_day():
@@ -21,3 +16,13 @@ def cur_month():
 def cur_year():
     c_year = datetime.now().strftime("%Y")
     return c_year
+
+
+def cur_date() -> str:
+    current_day = cur_day()
+    current_month = cur_month()
+    current_year = cur_year()
+
+    current_date = f"{current_year}_{current_month}_{current_day}"
+
+    return current_date
