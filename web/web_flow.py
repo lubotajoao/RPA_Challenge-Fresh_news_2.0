@@ -46,13 +46,20 @@ def web_flow(log_file: str, project_name: str, excel_report_file: str, images_fo
             description = f"Web browser launched successfully."
             csv_log(file=log_file, project_name=project_name, task=module_name, status=status, description=description)
 
-            search_btn = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, "search-bar__button")))
+            search_btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.CLASS_NAME, "search-bar__button")))
             search_btn.click()
 
             sleep(2)
             dropdown_element = driver.find_element(By.ID, "search-sort-option")
             select = Select(dropdown_element)
             select.select_by_visible_text(f"{search_sort}")
+
+            sleep(2)
+            wait = WebDriverWait(driver, 10)
+            div_element = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'search-result__list')))
+            articles = div_element.find_elements(By.TAG_NAME, 'article')
+            total_articles = len(articles)
+            print(f'Total number of articles: {total_articles}')
 
             # Inserting Data into Excel File
             # excel_set_report_info(log_file=log_file, project_name=project_name, report_file=excel_report_file, title=title, date=str(date), description=description,
