@@ -7,9 +7,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
-
-
 from time import sleep
+
+from excel.excel_set_report_info import excel_set_report_info
 from helper.csv_log import csv_log
 from helper.config_dates import cur_date
 from helper.read_json_config_file import search_url, search_phrase, search_sort
@@ -46,13 +46,17 @@ def web_flow(log_file: str, project_name: str, excel_report_file: str, images_fo
             description = f"Web browser launched successfully."
             csv_log(file=log_file, project_name=project_name, task=module_name, status=status, description=description)
 
-            search_btn = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CLASS_NAME, "search-bar__button")))
+            search_btn = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, "search-bar__button")))
             search_btn.click()
 
             sleep(2)
             dropdown_element = driver.find_element(By.ID, "search-sort-option")
             select = Select(dropdown_element)
             select.select_by_visible_text(f"{search_sort}")
+
+            # Inserting Data into Excel File
+            # excel_set_report_info(log_file=log_file, project_name=project_name, report_file=excel_report_file, title=title, date=str(date), description=description,
+            #                      picture_filename=picture_filename, count_search_phrase=count_search_phrase, picture_file_path=picture_file_path)
 
         else:
             status = "Error"
