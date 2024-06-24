@@ -2,5 +2,8 @@
     "BASE_PATH": "F:/RPA/Projects/RPA_Challenge-Fresh_news_2.0/data",
     "INPUT_FILENAME": "Input_RPA_Challenge-Fresh_news_2.0",
     "LOG_CSV_DEFAULT_FILENAME": "RPA_Challenge-Fresh_news_2.0",
-    "PROJECT_NAME": "RPA Challenge Fresh News 2.0"
+    "PROJECT_NAME": "RPA Challenge Fresh News 2.0",
+    "SEARCH_URL": "https://www.aljazeera.com",
+    "SEARCH_PHRASE": "traders",
+    "SORT": "Date"
 }

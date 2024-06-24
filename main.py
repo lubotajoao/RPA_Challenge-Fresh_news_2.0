@@ -5,9 +5,9 @@ from helper.create_csv_log_file import create_csv_log_file
 from helper.create_excel_report_file import create_excel_report_file
 from helper.create_folder import create_folder
 from helper.csv_log import csv_log
-from web.web_init_driver import init_driver
-from helper.read_json_config_file import input_folder_path, output_folder_path, report_folder_path, log_csv_folder_path,  log_csv_file_name, project_name, input_file_path
-from helper.config_dates import cur_day, cur_month, cur_year, cur_date
+from helper.read_json_config_file import images_folder_path, output_folder_path, report_folder_path, log_csv_folder_path,  log_csv_file_name, project_name
+from helper.config_dates import cur_date
+from web.web_flow import web_flow
 
 module_name = "rpa_challenge_fresh_news_2.0_main.py"
 current_log_file = ""
@@ -16,18 +16,16 @@ current_log_file = ""
 def main():
     global module_name, current_log_file
     try:
-        # Process Dates
-        current_day = cur_day()
-        current_month = cur_month()
-        current_year = cur_year()
         current_date = cur_date()
 
         # Creating Folder
         output_folder = create_folder(output_folder_path)
 
+        images_folder = f"{images_folder_path}/{current_date}"
         csv_log_folder = f"{log_csv_folder_path}/{current_date}"
         report_folder = f"{report_folder_path}/{current_date}"
 
+        current_images_folder = create_folder(folder_path=images_folder)
         current_csv_log_folder = create_folder(folder_path=csv_log_folder)
         current_report_folder = create_folder(folder_path=report_folder)
 
@@ -45,9 +43,10 @@ def main():
         closing_apps(log_file=current_log_file, project_name=project_name)
 
         # Web Flow
+        web_flow(log_file=current_log_file, project_name=project_name, excel_report_file=excel_report_file, images_folder=current_images_folder)
 
         # Clean_Up Tasks
-        closing_apps(log_file=current_log_file, project_name=project_name)
+        # closing_apps(log_file=current_log_file, project_name=project_name)
 
     except Exception as e:
         status = "Error"
